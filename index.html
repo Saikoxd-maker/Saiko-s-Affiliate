@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Marketing Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+            animation-delay: 0.5s;
+        }
+
+        header .logo a {
+            color: #fff;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px 0;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .search-bar {
+            margin-top: 20px;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            width: 70%;
+            border: none;
+            margin-right: 10px;
+        }
+
+        .search-bar button {
+            padding: 10px;
+            background: #ff6347;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Hero Section with Local Background Image */
+        .hero {
+            background-color: lightcoral;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            animation: fadeIn 2s forwards;
+        }
+
+        .hero-content h1 {
+            font-size: 3em;
+            opacity: 0;
+            animation: slideIn 1.5s forwards;
+            animation-delay: 1s;
+        }
+
+        .hero-content p {
+            font-size: 1.2em;
+            opacity: 0;
+            animation: slideIn 1.5s forwards;
+            animation-delay: 1.5s;
+        }
+
+        .cta-button {
+            background: #ff6347;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 20px;
+            display: inline-block;
+            opacity: 0;
+            animation: slideIn 1.5s forwards;
+            animation-delay: 2s;
+        }
+
+        .cta-button:hover {
+            background: #e5533b;
+        }
+
+        /* Featured Products Section */
+        .featured-products {
+            padding: 40px 0;
+            background: #fff;
+            animation: fadeIn 2s forwards;
+            animation-delay: 2.5s;
+        }
+
+        .featured-products h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .products {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .product-card {
+            width: 30%;
+            text-align: center;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+            animation-delay: 3s;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product-card h3 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        .product-card p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .product-card .cta-button {
+            margin-top: 10px;
+        }
+
+        /* Product Comparison Section */
+        .product-comparison {
+            background: #fff;
+            padding: 40px 0;
+            animation: fadeIn 2s forwards;
+            animation-delay: 3.5s;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #333;
+            color: #fff;
+        }
+
+        /* Latest Blog Posts Section */
+        .latest-blogs {
+            background: #f9f9f9;
+            padding: 40px 0;
+            animation: fadeIn 2s forwards;
+            animation-delay: 4s;
+        }
+
+        .blog-posts {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .blog-post {
+            width: 30%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-post h3 {
+            font-size: 1.6em;
+            margin-bottom: 10px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: #fff;
+            padding: 40px 0;
+            text-align: center;
+            animation: fadeIn 2s forwards;
+            animation-delay: 4.5s;
+        }
+
+        .testimonial {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            font-style: italic;
+        }
+
+        /* Footer Section */
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer .footer-links {
+            margin-bottom: 10px;
+        }
+
+        footer .footer-links a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer .footer-socials a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer p {
+            margin-top: 20px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Key Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#">Saiko'sPlace</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="C:\Users\h\Desktop\main'\main.html">Home</a></li>
+                    <li><a href="C:\Users\h\Desktop\main'\Blog.html">Blog</a></li>
+                    <li><a href="C:\Users\h\Desktop\main'\about-us.html">About Us</a></li>
+                    <li><a href="C:\Users\h\Desktop\main'\contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search products...">
+                <button>Search</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Local Background Image -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover the Best Deals on Tech Gadgets</h1>
+            <p>Find top-rated products at unbeatable prices.</p>
+            <a href="#" class="cta-button">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+        <div class="container">
+            <h2>Featured Products</h2>
+            <div class="products">
+                <div class="product-card">
+                    <img src="Laptop.jpg" alt="Product Image 1"> <!-- Change to your local image -->
+                    <h3>ASUS TUF Gaming F15 - Intel Core i5-11260H 11th Gen, 15.6-inch (39.62 cm) FHD 144Hz, (8GB/512GB SSD/4GB NVIDIA RTX 2050/Win 11/MS Office/Backlit/Black/2.30 kg),FX506HF-HN077WS</h3>
+                    <!-- <p>Short description of Product 1.</p> -->
+                    <a href="https://amzn.to/4gT4pQe" class="cta-button">Buy Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="Headphone.jpg" alt="Product Image 2"> <!-- Change to your local image -->
+                    <h3>Ant Esports H520W World Of Warships Edition Lightweight Gaming Over Ear Wired Headphones with Mic| 3.5MM Jack |50 MM Drivers | Compatible with PC/ PS4 / Xbox One / Nintendo / Mobile (Black)</h3>
+                    <!-- <p>Short description of Product 2.</p> -->
+                    <a href="https://amzn.to/4a5JirG" class="cta-button">Buy Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="Monitor.jpg" alt="Product Image 3"> <!-- Change to your local image -->
+                    <h3>Acer Nitro Vg271U M3 27 Inch IPS Wqhd 2560X1440 Pixels Gaming Backlight Led LCD Monitor|180Hz Refresh Rate|0.5 Ms Response|Dci-P3 95%,Hdr10 Support|2X Hdmi,1X Dp|Eye Care|Stereo Speakers,Black</h3>
+                    <!-- <p>Short description of Product 3.</p> -->
+                    <a href="https://amzn.to/4j4HZgH" class="cta-button">Buy Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="iQOO.jpg" alt="Product Image 3"> <!-- Change to your local image -->
+                    <h3>iQOO Z9x 5G (Storm Grey, 6GB RAM, 128GB Storage)</h3>
+                    <p>iQOO Z9x 5G with Snapdragon 6 Gen 1 with 560k+ AnTuTu Score | 6000mAh Battery with 7.99mm Slim Design | 44W FlashCharge.</p>
+                    <a href="https://amzn.to/40oWrYD" class="cta-button">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Comparison Section -->
+    <section class="product-comparison">
+        <div class="container">
+            <h2>Product Comparison</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Features</th>
+                        <th>Buy Now</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ASUS TUF Gaming F15</td>
+                        <td>49,000</td>
+                        <td>High Gaming Performance with High FPSand resolution</td>
+                        <td><a href="https://amzn.to/4gT4pQe">Buy Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>Ant Esports H520W World Of Warships Edition</td>
+                        <td>699</td>
+                        <td>High resolution and Ultra High Graphics</td>
+                        <td><a href="https://amzn.to/4a5JirG">Buy Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>Acer Nitro Vg271U M3</td>
+                        <td>14,299</td>
+                        <td>Great SoundSystem and high quality attached microphone</td>
+                        <td><a href="https://amzn.to/4j4HZgH">Buy Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>iQOO Z9x 5G (Storm Grey, 6GB RAM, 128GB Storage)</td>
+                        <td>13,499 </td>
+                        <td>iQOO Z9x 5G with Snapdragon 6 Gen 1 with 560k+ AnTuTu Score | 6000mAh Battery with 7.99mm Slim Design | 44W FlashCharge </td>
+                        <td><a href="https://amzn.to/40oWrYD">Buy Now</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial">
+                <p>"Great site! Helped me find exactly what I needed at the best price." - John Doe</p>
+            </div>
+            <div class="testimonial">
+                <p>"I trust the recommendations here. Always reliable and easy to shop." - Jane Smith</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Affiliate Disclaimer</a>
+            </div>
+            <div class="footer-socials">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+            <p>&copy; 2025 My Affiliate Store. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
